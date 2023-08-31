@@ -7,7 +7,7 @@ flowchart LR
     classDef node fill:lightBlue,color:black,stroke:#333,stroke-width:4px
     classDef topic fill:white,color:black,stroke:#333,stroke-width:5px, stroke-dasharray: 2 2
 
-    key{[KEY]}-->([Node])
+    key{{KEY}}-->([Node])
     key-->[Topic]
     
     diagnostics_topic[DIAGNOSTICS]:::topic
