@@ -7,7 +7,7 @@ flowchart LR
     classDef node fill:lightBlue,color:black,stroke:#333,stroke-width:4px
     classDef topic fill:white,color:black,stroke:#333,stroke-width:5px, stroke-dasharray: 2 2
 
-    style legend fill:grey,color:black
+    style legend fill:gray,color:black
 
     legend{{KEY}}-->i1([Node]):::node
     legend-->i2[Topic]:::topic
