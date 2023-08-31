@@ -14,7 +14,7 @@ flowchart LR
     
     diagnostics_topic[DIAGNOSTICS]:::topic
     diag_agg([Diagnostic_Aggregator])
-    diag_agg_topic[DIAGNOSTICS_AGGREGATOR]:::topic
+    diag_agg_topic[DIAGNOSTICS_AGG]:::topic
     status_node([Status])
     status_lights([Status Lights])
     RQT/GUI([RQT])
