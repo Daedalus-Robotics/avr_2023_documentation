@@ -2,36 +2,47 @@
 ---
 title: AVR Ros2 Diagnostics Graph
 ---
-stateDiagram-v2
-    direction LR
+flowchart LR
     
-    classDef topic color:white;
+    classDef node fill:lightBlue,color:black,stroke:#333,stroke-width:4px
+    classDef topic fill:white,color:black,stroke:#333,stroke-width:5px, stroke-dasharray: 4 4
     
-    state Abstractions{
-        CSI_Abstraction
-        MAVROS
+    diagnostics_topic[DIAGNOSTICS]:::topic
+    diag_agg([Diagnostic_Aggregator])
+    diag_agg_topic[DIAGNOSTICS_AGGREGATOR]:::topic
+    status_node([Status])
+    status_lights([Status Lights])
+    RQT/GUI([RQT])
+    
+    zed([ZED])
+    
+   
+    
+    subgraph Abstractions 
+        zed
+        CSI_abs
+        Mavros
         PCC
-        Gimbal_Controller
-        Thermal_Camera
-        ZED
-        
-    }
+        gimcont
+        themcam
+    end
     
-    state GUI{
-        RQT
-    }
+    subgraph GUI 
+        RQT/GUI
+    end
     
-    ZED --> DIAGNOSTICS : publishes
-    CSI_Abstraction --> DIAGNOSTICS : publishes
-    MAVROS --> DIAGNOSTICS : publishes
-    PCC --> DIAGNOSTICS : publishes
-    Gimbal_Controller --> DIAGNOSTICS : publishes
-    Thermal_Camera --> DIAGNOSTICS : publishes
-    DIAGNOSTICS:::topic --> Diagnostics_Aggregator : subscribes
-    Diagnostics_Aggregator --> DIAGNOSTICS_AGGREGATOR : publishes
-    Status_Node --> Status_Lights_Abstraction : controls-via-service
-    Status_Node --> DIAGNOSTICS_AGGREGATOR : publishes
-    DIAGNOSTICS_AGGREGATOR --> RQT : subscribes
-    DIAGNOSTICS_AGGREGATOR --> RQT : 
+    zed --publishes-->diagnostics_topic
+    CSI_abs([CSI Abstraction]) --publishes-->diagnostics_topic
+    Mavros([MAVROS]) --publishes-->diagnostics_topic
+    PCC([PCC]) --publishes-->diagnostics_topic
+    gimcont([Gimbal Controller]) --publishes-->diagnostics_topic
+    themcam([Thermal Camera]) --publishes-->diagnostics_topic
+    diagnostics_topic -. subscribes .->diag_agg
+    diag_agg --publishes-->diag_agg_topic
+    status_node --publishes-->diag_agg_topic
+    status_node --controls-via-service-->status_lights
+    diag_agg_topic -. subscribes .-> RQT/GUI
+    diag_agg_topic -. subscribes .-> RQT/GUI
+    diag_agg_topic -. subscribes .-> RQT/GUI 
 
 ```
