@@ -5,7 +5,7 @@ title: AVR Ros2 Diagnostics Graph
 flowchart LR
     
     classDef node fill:lightBlue,color:black,stroke:#333,stroke-width:4px
-    classDef topic fill:white,color:black,stroke:#333,stroke-width:5px, stroke-dasharray: 4 4
+    classDef topic fill:white,color:black,stroke:#333,stroke-width:5px, stroke-dasharray: 2
     
     diagnostics_topic[DIAGNOSTICS]:::topic
     diag_agg([Diagnostic_Aggregator])
