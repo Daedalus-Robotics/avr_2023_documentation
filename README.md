@@ -9,8 +9,8 @@ flowchart LR
 
     classDef key fill:gray,color:black,stroke:#333,stroke-width:4px
     
-    legend{{KEY}}:::key-->i1[[Node]]
-    legend-->i2[[Topic]]
+    legend{{KEY}}:::key-->i1([Node])
+    legend-->i2[Topic]
     
     diagnostics_topic[DIAGNOSTICS]:::topic
     diag_agg([Diagnostic_Aggregator])
