@@ -7,8 +7,8 @@ flowchart LR
     classDef node fill:lightBlue,color:black,stroke:#333,stroke-width:4px
     classDef topic fill:white,color:black,stroke:#333,stroke-width:5px, stroke-dasharray: 2 2
 
-    legend{{KEY}}-->([Node])
-    legend-->[Topic]
+    legend{{KEY}}-->[[Node]]
+    legend-->[[Topic]]
     
     diagnostics_topic[DIAGNOSTICS]:::topic
     diag_agg([Diagnostic_Aggregator])
