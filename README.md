@@ -1,6 +1,6 @@
 ```mermaid
 ---
-title: AVR Ros2 Diagnostics Graph
+title: Daedalus AVR 2023 ROS2 Diagnostics Graph
 ---
 flowchart LR
     
