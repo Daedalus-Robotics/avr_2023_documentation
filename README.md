@@ -17,7 +17,7 @@ flowchart LR
     diag_agg_topic[DIAGNOSTICS_AGG]:::topic
     status_node([Status])
     status_lights([Status Lights])
-    AngularGUI([RQT])
+    AngularGUI([Angular_GUI])
     
     zed([ZED])
     
