@@ -17,7 +17,7 @@ flowchart LR
     diag_agg_topic[DIAGNOSTICS_AGG]:::topic
     status_node([Status])
     status_lights([Status Lights])
-    RQT/GUI([RQT])
+    AngularGUI([RQT])
     
     zed([ZED])
     
@@ -33,7 +33,7 @@ flowchart LR
     end
     
     subgraph GUI 
-        RQT/GUI
+        AngularGUI
     end
     
     zed --publishes-->diagnostics_topic
@@ -46,8 +46,8 @@ flowchart LR
     diag_agg --publishes-->diag_agg_topic
     status_node --publishes-->diag_agg_topic
     status_node --controls-via-service-->status_lights
-    diag_agg_topic -. subscribes .-> RQT/GUI
-    diag_agg_topic -. subscribes .-> RQT/GUI
-    diag_agg_topic -. subscribes .-> RQT/GUI 
+    diag_agg_topic -. subscribes .-> AngularGUI
+    diag_agg_topic -. subscribes .-> AngularGUI
+    diag_agg_topic -. subscribes .-> AngularGUI 
 
 ```
