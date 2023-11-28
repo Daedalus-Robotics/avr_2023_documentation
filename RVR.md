@@ -6,7 +6,7 @@ title: Daedalus AVR 2023 RVR Systems Graph
 
 flowchart LR
 
-    subgraph recon[Recon Path]
+    subgraph manual[Manual Control]
         direction RL
         subgraph laptop[Laptop]
             conversion[Convert Input]
