@@ -1,6 +1,6 @@
 ```mermaid
 ---
-title: Daedalus AVR 2023 RVR System Graph
+title: Daedalus AVR 2023 RVR Systems Graph
 ---
 flowchart LR
 
