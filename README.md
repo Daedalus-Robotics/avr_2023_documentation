@@ -21,7 +21,6 @@ flowchart LR
             CSI_abs
             Mavros
             PCC
-            gimcont
             themcam
         end
     end
