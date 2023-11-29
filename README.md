@@ -14,8 +14,6 @@ flowchart LR
         diagnostics_topic[DIAGNOSTICS]:::topic
         diag_agg([Diagnostic_Aggregator])
         diag_agg_topic[DIAGNOSTICS_AGG]:::topic
-        status_node([Status])
-        status_lights([Status Lights])
         zed([ZED])
         
         subgraph Abstractions 
@@ -43,8 +41,6 @@ flowchart LR
     themcam([Thermal Camera]) --publishes-->diagnostics_topic
     diagnostics_topic -. subscribes .->diag_agg
     diag_agg --publishes-->diag_agg_topic
-    status_node --publishes-->diag_agg_topic
-    status_node --controls-via-service-->status_lights
     diag_agg_topic -. subscribes .-> PyQTGUI
     diag_agg_topic -. subscribes via ROS Bridge .-> PyQTGUI
     diag_agg_topic -. subscribes .-> PyQTGUI 
