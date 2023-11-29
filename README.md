@@ -12,7 +12,7 @@ flowchart LR
     subgraph VMC
         direction LR
         diagnostics_topic[DIAGNOSTICS]:::topic
-        diag_agg([Diagnostic_Aggregator])
+        diag_agg([Diagnostic Aggregator])
         diag_agg_topic[DIAGNOSTICS_AGG]:::topic
         zed([ZED])
         
