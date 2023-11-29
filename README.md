@@ -6,35 +6,34 @@ flowchart LR
     
     classDef node fill:lightBlue,color:black,stroke:#333,stroke-width:4px
     classDef topic fill:white,color:black,stroke:#333,stroke-width:5px, stroke-dasharray: 2 2
-
     classDef key fill:gray,color:black,stroke:#333,stroke-width:4px
     
+
+    subgraph VMC
+        direction LR
+        diagnostics_topic[DIAGNOSTICS]:::topic
+        diag_agg([Diagnostic_Aggregator])
+        diag_agg_topic[DIAGNOSTICS_AGG]:::topic
+        status_node([Status])
+        status_lights([Status Lights])
+        zed([ZED])
+        
+        subgraph Abstractions 
+            zed
+            CSI_abs
+            Mavros
+            PCC
+            gimcont
+            themcam
+        end
+    end
+
+    subgraph GUI 
+        PyQTGUI
+    end
+
     legend{{KEY}}:::key==>i1([Node]):::node
     legend==>i2[Topic]:::topic
-    
-    diagnostics_topic[DIAGNOSTICS]:::topic
-    diag_agg([Diagnostic_Aggregator])
-    diag_agg_topic[DIAGNOSTICS_AGG]:::topic
-    status_node([Status])
-    status_lights([Status Lights])
-    AngularGUI([Angular_GUI])
-    
-    zed([ZED])
-    
-   
-    
-    subgraph Abstractions 
-        zed
-        CSI_abs
-        Mavros
-        PCC
-        gimcont
-        themcam
-    end
-    
-    subgraph GUI 
-        AngularGUI
-    end
     
     zed --publishes-->diagnostics_topic
     CSI_abs([CSI Abstraction]) --publishes-->diagnostics_topic
@@ -46,8 +45,8 @@ flowchart LR
     diag_agg --publishes-->diag_agg_topic
     status_node --publishes-->diag_agg_topic
     status_node --controls-via-service-->status_lights
-    diag_agg_topic -. subscribes .-> AngularGUI
-    diag_agg_topic -. subscribes .-> AngularGUI
-    diag_agg_topic -. subscribes .-> AngularGUI 
+    diag_agg_topic -. subscribes .-> PyQTGUI
+    diag_agg_topic -. subscribes via ROS Bridge .-> PyQTGUI
+    diag_agg_topic -. subscribes .-> PyQTGUI 
 
 ```
