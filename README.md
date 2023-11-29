@@ -37,8 +37,7 @@ flowchart LR
     CSI_abs([CSI Abstraction]) --publishes-->diagnostics_topic
     Mavros([MAVROS]) --publishes-->diagnostics_topic
     PCC([PCC]) --publishes-->diagnostics_topic
-    gimcont([Gimbal Controller]) --publishes-->diagnostics_topic
-    themcam([Thermal Camera]) --publishes-->diagnostics_topic
+    themcam([PCC: Thermal Camera]) --publishes-->diagnostics_topic
     diagnostics_topic -. subscribes .->diag_agg
     diag_agg --publishes-->diag_agg_topic
     diag_agg_topic -. subscribes .-> PyQTGUI
