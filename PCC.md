@@ -8,7 +8,7 @@ flowchart LR
     classDef node fill:lightBlue,color:black,stroke:#333,stroke-width:4px
     classDef topic fill:white,color:black,stroke:#333,stroke-width:5px, stroke-dasharray: 2 2
     classDef service fill:#ffedb6,color:black,stroke:#333,stroke-width:5px, stroke-dasharray: 2 2
-    classDef gui fill:white, color:black, stroke:#333, stroke-width:7px
+    classDef gui fill:#ffffff,color:black,stroke:#333,stroke-width:7px, stroke-dasharray: 2 2
 
     
     classDef key fill:gray,color:black,stroke:#333,stroke-width:4px
@@ -29,8 +29,7 @@ flowchart LR
 
     subgraph VMC
         bdu([BDU]) --> servo
-        auton_drop([AUTON DROP]) 
-        stat_lights([STATUS LIGHTS]) --> ledstrip
+        auton_drop([AUTON DROP]) --> ledstrip
         
         subgraph ACTION BRIDGE
             goal{{GOAL}}:::service
